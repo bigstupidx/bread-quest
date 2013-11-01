@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		
-		amountToMove = new Vector2(currentSpeed * Time.deltaTime, -gravity * Time.deltaTime);
+		amountToMove = new Vector2(currentSpeed * Time.deltaTime, 0);
 		playerPhysics.Move(amountToMove);
 	}
 }

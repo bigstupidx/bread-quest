@@ -4,16 +4,24 @@ using System.Collections;
 public class PlayerPhysics : MonoBehaviour {
 	
 	private BoxCollider collider;
-	private Vector3 size, centre;
+	private Vector3 s, c;
+	
+	private float skin = .005f;
+	
+	[HideInInspector]
+	public bool grounded;
+	public LayerMask collisionMask;
+	
+	Ray ray;
+	RaycastHit hit;
 	
 	void Start() {
 		collider = GetComponent<BoxCollider>();
-		size = new Vector3();
+		s = new Vector3();
+		c = new Vector3();
 	}
 	
 	public void Move(Vector2 moveAmount) {
-		float deltaY = moveAmount.y;
-		
 		transform.Translate(moveAmount);
 	}
 }
