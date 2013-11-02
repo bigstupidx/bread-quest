@@ -1,33 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(PlayerPhysics))]
 public class PlayerController : MonoBehaviour {
 	
-	public float speed = 12, acceleration = 8, gravity = 20;
+	public float speed = 3, rotateSpeed = 3;
 	
-	private float currentSpeed, targetSpeed;
-	private Vector2 amountToMove;
-	private PlayerPhysics playerPhysics;
-
+	PlayerModel model;
+	CharacterController controller;
+	
 	void Start () {
-		playerPhysics = GetComponent<PlayerPhysics>();
+		model = new PlayerModel();
+		controller = GetComponent<CharacterController>();
 	}
 	
-	void Update () {
-		targetSpeed = Input.GetAxisRaw("Horizontal") * speed;
+	void Update() {
+		ProcessMovement();
+	}
+	
+	public void ProcessMovement () {
+		transform.Rotate(0, Input.GetAxis("Horizontal") * model.GetRotateSpeed(), 0);
 		
-		if (currentSpeed != targetSpeed) {
-			float initialDirection = Mathf.Sign(targetSpeed - currentSpeed);
-			
-			currentSpeed += Time.deltaTime * initialDirection;
-			
-			if (initialDirection != Mathf.Sign(targetSpeed - currentSpeed)) {
-				currentSpeed = targetSpeed;
-			}
-		}
+		Vector3 forward = transform.TransformDirection(Vector3.forward);
+		float curSpeed = model.GetSpeed() * Input.GetAxis("Vertical");
 		
-		amountToMove = new Vector2(currentSpeed * Time.deltaTime, 0);
-		playerPhysics.Move(amountToMove);
+		controller.SimpleMove(forward * curSpeed);
 	}
 }
