@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IInteractive.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IMovable.cs" />
+     <Compile Include="Assets\Scripts\PlayerContainer\PlayerContainer.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerModel.cs" />
   </ItemGroup>

@@ -3,26 +3,45 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
-	public float speed = 3, rotateSpeed = 3;
+	const int MAX_SPEED = 20, MAX_ACCELERATION = 10, JUMP_SPEED = 200;
 	
-	PlayerModel model;
-	CharacterController controller;
+	float currentSpeed, targetSpeed, jumpSpeed;
+	
+	bool isGrounded;
 	
 	void Start () {
-		model = new PlayerModel();
-		controller = GetComponent<CharacterController>();
-	}
-	
-	void Update() {
-		ProcessMovement();
+		isGrounded = true;
+		currentSpeed = targetSpeed = jumpSpeed = 0;
 	}
 	
 	public void ProcessMovement () {
-		transform.Rotate(0, Input.GetAxis("Horizontal") * model.GetRotateSpeed(), 0);
+		targetSpeed = Input.GetAxis("Horizontal") * MAX_SPEED;
 		
-		Vector3 forward = transform.TransformDirection(Vector3.forward);
-		float curSpeed = model.GetSpeed() * Input.GetAxis("Vertical");
+		// processing horizontal movement
+		if (targetSpeed != currentSpeed) {
+			currentSpeed = IncrementTowards(currentSpeed, targetSpeed);
+		}
 		
-		controller.SimpleMove(forward * curSpeed);
+		Vector3 movement = new Vector3(currentSpeed, 0, 0);
+		
+		// processing vertical movements
+		if(Input.GetButton("Jump") && isGrounded) {
+			movement.y = JUMP_SPEED;
+		}
+	
+		// applying movements to player
+		transform.Translate(movement * Time.deltaTime);
 	}
+	
+	float IncrementTowards(float _current, float _target) {
+		float direction = Mathf.Sign(_target - _current);
+		_current += MAX_ACCELERATION * direction;
+		
+		return direction == Mathf.Sign(_target - _current)
+			   ? _current
+			   : _target;
+	}
+	
+	void OnCollisionEnter(Collision _collision) { isGrounded = _collision.gameObject.name == "Ground"; }
+	void OnCollisionExit(Collision _collision)  { isGrounded = _collision.gameObject.name != "Ground"; }
 }

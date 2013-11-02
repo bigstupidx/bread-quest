@@ -2,28 +2,21 @@
 
 **Created at**
 10 / 29 / 2013
-
 **Updated at**
-10 / 29 / 2013
+11 / 02 / 2013
 
-##Index##
 ##Group##
 
- * Chris
- * Erik
+ * Chris Turner
+ * Erik Moran
  * Lucas Oliveira David
- * Paul
+ * Paul Phan
  * Paulina
  * Vincent
 
-##Resume##
-
-A game called game.
-
-##Introduction##
-
-##Resources##
-
 ##References##
 
-EOF
+http://walkerboystudio.com/html/unity_course_lab_4.html
+http://forum.unity3d.com/threads/186908-Unity-Tutorial-Creating-a-Scroller-Platformer-Game
+http://answers.unity3d.com/questions/31201/character-movement-and-jumping-script.html
+http://answers.unity3d.com/questions/196381/how-do-i-check-if-my-rigidbody-player-is-grounded.html
