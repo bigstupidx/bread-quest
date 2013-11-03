@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
-	const int MAX_SPEED = 20, MAX_ACCELERATION = 10, JUMP_SPEED = 200;
+	const int MAX_SPEED = 20, ACCELERATION = 10, JUMP_SPEED = 200;
 	
 	float currentSpeed, targetSpeed, jumpSpeed;
 	
@@ -19,29 +19,23 @@ public class PlayerController : MonoBehaviour {
 		
 		// processing horizontal movement
 		if (targetSpeed != currentSpeed) {
-			currentSpeed = IncrementTowards(currentSpeed, targetSpeed);
+			// smothly increments speed towards target speed
+			float direction = Mathf.Sign(targetSpeed - currentSpeed);
+			currentSpeed += ACCELERATION * direction;
 		}
 		
 		Vector3 movement = new Vector3(currentSpeed, 0, 0);
 		
-		// processing vertical movements
-		if(Input.GetButton("Jump") && isGrounded) {
-			movement.y = JUMP_SPEED;
-		}
 	
 		// applying movements to player
 		transform.Translate(movement * Time.deltaTime);
 	}
 	
-	float IncrementTowards(float _current, float _target) {
-		float direction = Mathf.Sign(_target - _current);
-		_current += MAX_ACCELERATION * direction;
-		
-		return direction == Mathf.Sign(_target - _current)
-			   ? _current
-			   : _target;
+	void OnCollisionEnter(Collision _collision) {
+		jumpSpeed  = 0;
+		isGrounded = _collision.gameObject.name == "Ground";
 	}
-	
-	void OnCollisionEnter(Collision _collision) { isGrounded = _collision.gameObject.name == "Ground"; }
-	void OnCollisionExit(Collision _collision)  { isGrounded = _collision.gameObject.name != "Ground"; }
+	void OnCollisionExit(Collision _collision)  {
+		isGrounded = _collision.gameObject.name != "Ground";
+	}
 }
