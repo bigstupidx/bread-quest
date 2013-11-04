@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerModel : MonoBehaviour, IDamageable {
 
-	public const int INITIAL_HEALTH = 100, INITIAL_EXPERIENCE = 0;
-	
+	public const int INITIAL_HEALTH = 100, INITIAL_EXPERIENCE = 0, MAX_SPEED = 20, ACCELERATION = 10, JUMP_SPEED = 70;
 	int experience, health;
 	
 	public PlayerModel() {
@@ -14,12 +12,12 @@ public class PlayerModel : MonoBehaviour, IDamageable {
 	
 	public PlayerModel (int _health, int _experience,
 		int _speed, int _rotateSpeed) {
-		health = _health > 0
+		health = _health >= 0
 			   ? _health
-			   : 0;
-		experience = _experience > 0
+			   : INITIAL_HEALTH;
+		experience = _experience >= 0
 				   ? _experience
-				   : 0;
+				   : INITIAL_EXPERIENCE;
 	}
 	
 	public void Damage( int _damage ) {

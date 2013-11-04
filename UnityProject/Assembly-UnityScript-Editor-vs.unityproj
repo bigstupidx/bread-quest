@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{137A7369-EC96-0CC2-09B9-FE1D6DE1A3E3}</ProjectGuid>
+	<ProjectGuid>{8869CCC3-C429-23F7-1189-F19B43E8872C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<AssemblyName>Assembly-UnityScript-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,30 +44,33 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\2D Mario Assets\Scripts\aniSprite.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\blockBreakables.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\blockBump.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\blockCoin.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\cameraBorderFollow2D.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\cameraSmoothFollow2D.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\coinRotate.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\enemyControls.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\guiScreens.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\hudController.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\itemPickup.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\mushroom.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\mushroomCollider.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\pathNode.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\playerControls.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\playerProperties.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\projectileFireball.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\screenShapeWipe.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\showGizmo.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\spawnSaveSetup.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\spawnTubePoints.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\timeController.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\timeFunctions.js" />
-     <Compile Include="Assets\2D Mario Assets\Scripts\wordBalloon.js" />
+     <Compile Include="Assets\2D Mario Assets\Editor\MakePrefab.js" />
+     <Compile Include="Assets\2D Mario Assets\Editor\MakeProjectFolder.js" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WP8.Extensions">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\WP8Support\EditorExtensions\UnityEditor.WP8.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Metro.Extensions">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\MetroSupport\EditorExtensions\UnityEditor.Metro.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.BB10.Extensions">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{5B580621-09B4-68CB-B5F4-5B9DD210A60F}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

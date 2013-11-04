@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
 
-[RequireComponent(typeof(PlayerModel), typeof(PlayerController))]
 public class PlayerContainer : MonoBehaviour
 {
 	PlayerModel model;
