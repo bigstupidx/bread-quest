@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 	CharacterController controller;
 	
 	void Start() {
-		movement = new Vector3(0, 0, 0);
+		movement = new Vector3();
 		controller = GetComponent<CharacterController>();
 	}
 	
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (!controller.isGrounded) {
 			movement.y -= Physics.gravity.magnitude;
-		} else if (Input.GetButton("Jump")) {
+		} else if (Input.GetButtonDown("Jump")) {
 			movement.y = PlayerModel.JUMP_SPEED;
 		}
 

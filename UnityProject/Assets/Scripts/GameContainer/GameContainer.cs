@@ -7,7 +7,6 @@ public class GameContainer : MonoBehaviour
 	StageCamera cam;
 	
 	public void Start() {
-		Debug.Log("Start");
 		cam = GetComponent<StageCamera>();
 		SpawnPlayer();
 	}
