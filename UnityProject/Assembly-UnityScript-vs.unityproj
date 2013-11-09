@@ -44,7 +44,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuController.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\aniSprite.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\blockBreakables.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\blockBump.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\blockCoin.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\cameraBorderFollow2D.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\cameraSmoothFollow2D.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\coinRotate.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\enemyControls.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\guiScreens.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\hudController.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\itemPickup.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\mushroom.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\mushroomCollider.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\pathNode.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\playerControls.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\playerProperties.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\projectileFireball.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\screenShapeWipe.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\showGizmo.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\spawnSaveSetup.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\spawnTubePoints.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\timeController.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\timeFunctions.js" />
+     <Compile Include="Assets\2D Mario Assets\Scripts\wordBalloon.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
