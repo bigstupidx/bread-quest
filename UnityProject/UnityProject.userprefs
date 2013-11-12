@@ -1,28 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\imports\iTween\Sample\RotateSample.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Scripts\GameContainer\StageCamera.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameContainer\StageCamera.cs" Line="10" Column="2" />
-      <File FileName="Assets\imports\iTween\Sample\RotateSample.cs" Line="7" Column="120" />
+      <File FileName="Assets\Scenes\Scripts\GameContainer\StageCamera.cs" Line="9" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="imports" expanded="True">
-                <Node name="iTween" expanded="True">
-                  <Node name="ReadMe!" expanded="True" />
-                  <Node name="Sample" expanded="True">
-                    <Node name="RotateSample.cs" selected="True" />
-                  </Node>
+              <Node name="Scenes" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Abstractions" expanded="True" />
+                  <Node name="GameContainer" expanded="True" />
+                  <Node name="Interfaces" expanded="True" />
+                  <Node name="Libs" expanded="True" />
+                  <Node name="MainMenuContainer" selected="True" />
                 </Node>
-              </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="Abstractions" expanded="True" />
-                <Node name="GameContainer" expanded="True" />
-                <Node name="PlayerContainer" expanded="True" />
-                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>
