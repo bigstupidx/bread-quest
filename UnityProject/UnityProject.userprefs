@@ -1,22 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Scripts\GameContainer\StageCamera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyControls\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scenes\Scripts\GameContainer\StageCamera.cs" Line="9" Column="2" />
+      <File FileName="Assets\Scripts\EnemyControls\EnemyController.cs" Line="39" Column="2" />
+      <File FileName="Assets\Scripts\Libs\iTween.cs" Line="204" Column="40" />
+      <File FileName="Assets\Scripts\Interfaces\IInteractive.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interfaces\IDamageable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interfaces\IMovable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameContainer\GameContainer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameContainer\DeadzoneController.cs" Line="8" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scenes" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Abstractions" expanded="True" />
-                  <Node name="GameContainer" expanded="True" />
-                  <Node name="Interfaces" expanded="True" />
-                  <Node name="Libs" expanded="True" />
-                  <Node name="MainMenuContainer" selected="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="Abstractions" expanded="True" />
+                <Node name="EnemyControls" expanded="True" />
+                <Node name="GameContainer" expanded="True" />
+                <Node name="Interfaces" expanded="True">
+                  <Node name="IInteractive.cs" selected="True" />
                 </Node>
+                <Node name="Libs" expanded="True" />
+                <Node name="MainMenuContainer" expanded="True" />
+                <Node name="PlayerContainer" expanded="True" />
+                <Node name="Utils" expanded="True" />
               </Node>
             </Node>
           </Node>

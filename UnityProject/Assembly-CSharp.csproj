@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Abstractions\Person.cs" />
+     <Compile Include="Assets\Scripts\EnemyControls\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\EnemyControls\EnemyPhysics.cs" />
      <Compile Include="Assets\Scripts\GameContainer\DeadzoneController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\GameContainer.cs" />
      <Compile Include="Assets\Scripts\GameContainer\StageCamera.cs" />
