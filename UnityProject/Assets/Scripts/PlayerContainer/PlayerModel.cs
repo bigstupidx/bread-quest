@@ -10,6 +10,14 @@
 				   ? _experience
 				   : INITIAL_EXPERIENCE;
 	}
+
+	public void Damage(int _damage, bool _respawn) {
+		Damage(_damage);
+
+		if (_respawn) {
+			Tools.GameContainer().ResetPlayerPosition();
+		}
+	}
 	
 	public int GetExperience()  { return experience; }
 }

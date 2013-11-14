@@ -5,8 +5,7 @@ public class DeadzoneController : MonoBehaviour {
 
 	void OnTriggerEnter (Collider _c) {
 		if (_c.tag == "Player") {
-			_c.GetComponent<PlayerModel>().Damage(PlayerModel.FALL_DAMAGE);
-			Tools.GameContainer().ResetPlayerPosition();
+			_c.GetComponent<PlayerModel>().Damage(PlayerModel.FALL_DAMAGE, true);
 		}
 	}
 }
