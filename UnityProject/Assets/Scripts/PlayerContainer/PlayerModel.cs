@@ -40,6 +40,9 @@ public class PlayerModel : Person {
 		if (_respawn) {
 			Tools.GameContainer().ResetPlayerPosition();
 		}
+		else {
+			//destroy player object
+		}
 	}
 	
 	public int GetExperience()  { return experience; }

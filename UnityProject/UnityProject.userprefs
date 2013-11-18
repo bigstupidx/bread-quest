@@ -1,13 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameContainer\GameContainer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Abstractions\Person.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyContainer\EnemyModel.cs" Line="7" Column="22" />
-      <File FileName="Assets\Scripts\GameContainer\GameContainer.cs" Line="9" Column="23" />
-      <File FileName="Assets\Scripts\GameContainer\StageCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerContainer\PlayerModel.cs" Line="29" Column="40" />
-      <File FileName="Assets\Scripts\EnemyContainer\EnemyController.cs" Line="26" Column="29" />
-      <File FileName="Assets\Scripts\Abstractions\Person.cs" Line="45" Column="27" />
+      <File FileName="Assets\Scripts\Abstractions\Person.cs" Line="13" Column="19" />
+      <File FileName="Assets\Scripts\GameContainer\DeadzoneController.cs" Line="13" Column="1" />
+      <File FileName="Assets\Scripts\PlayerContainer\PlayerModel.cs" Line="45" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
