@@ -2,15 +2,27 @@
 
 public class PlayerModel : Person {
 	int experience;
+
+	bool wasFacingRight;
 	
 	public PlayerModel() : base() {
 		experience = INITIAL_EXPERIENCE;
+		wasFacingRight = IsFacingRight();
 	}
 	
 	public PlayerModel (int _health, int _experience) : base(_health) {
 		experience = _experience >= 0
 				   ? _experience
 				   : INITIAL_EXPERIENCE;
+	}
+
+	public bool WasFacingRight() {
+		return wasFacingRight;
+	}
+
+	public void ToogleFacingDirection() {
+		wasFacingRight = IsFacingRight();
+		base.ToogleFacingDirection();
 	}
 
 	public void Damage(int damageInflicted) {

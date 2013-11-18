@@ -7,22 +7,23 @@ public class EnemyController : MonoBehaviour {
 
 	void Start() {
 		model = GetComponent<EnemyModel>();
-
-		// horizontal movement
-		iTween.MoveBy(gameObject, iTween.Hash(
-			"x", 1.5,
-			"easetype", "linear",
-			"looptype","pingpong"
-		));
 	}
 
 	void Update() {
+		ProcessMovement();
+	}
 
+	void ProcessMovement() {
+		transform.Translate(
+			(model.IsFacingRight() ? Vector3.right : Vector3.left ) * 2 * Time.deltaTime
+    	);
 	}
 
 	void OnTriggerEnter(Collider c) {
-		Debug.Log("EnemyController@OnTriggerEnter called.");
-		if (c.gameObject.tag == "Player" && model.isHostile())
+		if (c.CompareTag("EnemyMovementInversionZone")) {
+			model.ToogleFacingDirection();
+		}
+		else if (c.gameObject.tag == "Player" && model.isHostile())
 		{
 			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.FALL_DAMAGE);
 		}
