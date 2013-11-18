@@ -17,7 +17,6 @@ public abstract class Person : MonoBehaviour, IDamageable
 	}
 	
 	public void Damage( int _damage ) {
-		Debug.Log("Damage method called. Current health: " + health + ", damage: " + _damage);
 		health = health - _damage > 0
 			   ? health - _damage
 			   : 0;

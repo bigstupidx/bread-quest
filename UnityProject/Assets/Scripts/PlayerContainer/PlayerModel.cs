@@ -1,4 +1,6 @@
-﻿public class PlayerModel : Person {
+﻿using UnityEngine;
+
+public class PlayerModel : Person {
 	int experience;
 	
 	public PlayerModel() : base() {
@@ -9,6 +11,14 @@
 		experience = _experience >= 0
 				   ? _experience
 				   : INITIAL_EXPERIENCE;
+	}
+
+	public void Damage(int damageInflicted) {
+		base.Damage(damageInflicted);
+
+		if (!IsAlive()) {
+			Application.LoadLevel("game-over");
+		}
 	}
 
 	public void Damage(int _damage, bool _respawn) {

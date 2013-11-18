@@ -10,6 +10,12 @@ public class GameContainer : MonoBehaviour
 		cam = GetComponent<StageCamera>();
 		SpawnPlayer();
 	}
+
+	public void Update() {
+		if (Input.GetButton("Exit")) {
+			Application.Quit();
+		}
+	}
 	
 	public void SpawnPlayer() {
 		instantiatedPlayer = Instantiate(originalPlayer, Vector3.up * 10, Quaternion.identity) as GameObject;
@@ -18,7 +24,6 @@ public class GameContainer : MonoBehaviour
 	}
 	
 	public void ResetPlayerPosition() {
-		Debug.Log("ResetPlayerPosition");
 		instantiatedPlayer.transform.position = Vector3.up * 10;
 	}
 }

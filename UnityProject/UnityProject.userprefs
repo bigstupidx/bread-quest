@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyContainer\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyContainer\EnemyController.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\PlayerContainer\WeponController.cs" Line="13" Column="31" />
+      <File FileName="Assets\Scripts\ProjectileContainer\ProjectileController.cs" Line="27" Column="3" />
+      <File FileName="Assets\Scripts\EnemyContainer\EnemyController.cs" Line="24" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

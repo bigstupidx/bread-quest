@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Abstractions\Person.cs" />
+     <Compile Include="Assets\Scripts\Abstractions\ProjectileType.cs" />
      <Compile Include="Assets\Scripts\EnemyContainer\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyContainer\EnemyModel.cs" />
      <Compile Include="Assets\Scripts\GameContainer\DeadzoneController.cs" />
@@ -59,6 +60,8 @@
      <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuContainer.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerModel.cs" />
+     <Compile Include="Assets\Scripts\PlayerContainer\WeponController.cs" />
+     <Compile Include="Assets\Scripts\ProjectileContainer\ProjectileController.cs" />
      <Compile Include="Assets\Scripts\Utils\Tools.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	void Start() {
 		movement = new Vector3();
 		controller = GetComponent<CharacterController>();
-	}
+	}	
 
 	void Update() {
 		ProcessMovement();

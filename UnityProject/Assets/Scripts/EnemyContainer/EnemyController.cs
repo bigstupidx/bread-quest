@@ -10,21 +10,18 @@ public class EnemyController : MonoBehaviour {
 
 		// horizontal movement
 		iTween.MoveBy(gameObject, iTween.Hash(
-			"x", 2,
+			"x", 1.5,
 			"easetype", "linear",
 			"looptype","pingpong"
 		));
 	}
 
-	void FixedUpdate() {
-		ProcessMovement();
-	}
-
-	public void ProcessMovement() {
+	void Update() {
 
 	}
 
-	void OnCollisionEnter(Collision c) {
+	void OnTriggerEnter(Collider c) {
+		Debug.Log("EnemyController@OnTriggerEnter called.");
 		if (c.gameObject.tag == "Player" && model.isHostile())
 		{
 			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.FALL_DAMAGE);
