@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StageCamera : MonoBehaviour {
 	
-	public const int MIN_X = -10, MIN_Y = 5;
+	public const int MIN_X = 10, MIN_Y = 5;
 	
 	Transform target;
 	

@@ -14,4 +14,9 @@ public class Tools
 	public static GameContainer GameContainer() {
 		return Camera.main.GetComponent<GameContainer>();
 	}
+
+	public static bool IsNullObject(GameObject _o) {
+		return _o.CompareTag("EnemyMovementInversionZone")
+			|| _o.CompareTag("DeadZone");
+	}
 }

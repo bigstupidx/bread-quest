@@ -7,18 +7,27 @@ public class WeponController : MonoBehaviour {
 
 	void Update () {
 		if ( Input.GetButtonDown("Fire1") ) {
-			Attack (ProjectileType.JELLY);
+			Attack (ElementType.JELLY);
 
 		} else if ( Input.GetButtonDown("Fire2") ) {
-			Attack (ProjectileType.PB);
+			Attack (ElementType.PB);
 		}
 	}
 
-	void Attack(ProjectileType _projectile) {
-		Instantiate(
-			_projectile == ProjectileType.JELLY ? projectileJelly : projectilePB,
+	void Attack(ElementType _projectile)
+	{
+		GameObject projectile = Instantiate(
+			_projectile == ElementType.JELLY
+				? projectileJelly
+				: projectilePB,
 			transform.position,
 			Quaternion.identity
+		) as GameObject;
+
+		// if player is facing the right direction, throw element to the right direction.
+		// Throw element to the left direction, otherwise.
+		projectile.GetComponent<ProjectileController>().GoingRight(
+			transform.parent.GetComponent<PlayerModel>().IsFacingRight()
 		);
 	}
 }

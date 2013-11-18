@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour {
 		}
 		else if (c.gameObject.tag == "Player" && model.isHostile())
 		{
-			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.FALL_DAMAGE);
+			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.ENEMY_COLLISION_DAMAGE);
 		}
 		else if (c.gameObject.tag == "Jelly")
 		{

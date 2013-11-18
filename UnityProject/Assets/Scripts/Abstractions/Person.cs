@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Person : MonoBehaviour, IDamageable
 {
 	public const int INITIAL_HEALTH = 100, INITIAL_EXPERIENCE = 0, MAX_SPEED = 10, JUMP_SPEED = 30,
-		FALL_DAMAGE = 10, INITIAL_LIVES = 3;
+		FALL_DAMAGE = 40, ENEMY_COLLISION_DAMAGE = 30, INITIAL_LIVES = 3;
 	int health;
 	int lives;
 
@@ -27,6 +27,8 @@ public abstract class Person : MonoBehaviour, IDamageable
 			health = 0;
 			Die ();
 		}
+
+		Debug.Log("Damage inflicted. " + health + " health left.");
 	}
 
 	public bool IsFacingRight() {

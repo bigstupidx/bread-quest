@@ -23,6 +23,7 @@ public class PlayerModel : Person {
 	public void ToogleFacingDirection() {
 		wasFacingRight = IsFacingRight();
 		base.ToogleFacingDirection();
+		transform.Translate(-transform.localScale.x/2, 0, 0);
 	}
 
 	public void Damage(int damageInflicted) {
