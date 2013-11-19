@@ -19,4 +19,8 @@ public class Tools
 		return _o.CompareTag("EnemyMovementInversionZone")
 			|| _o.CompareTag("DeadZone");
 	}
+
+	public static GameObject Player() {
+		return GameContainer().instantiatedPlayer;
+	}
 }

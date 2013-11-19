@@ -1,4 +1,4 @@
-using UnityEngine;
+	using UnityEngine;
 
 public abstract class Person : MonoBehaviour, IDamageable
 {
@@ -10,45 +10,37 @@ public abstract class Person : MonoBehaviour, IDamageable
 
 	bool isFacingRight = true;
 	
-	public Person() {
+	public Person () {
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
 		init_health = health;
 	}
-	
-	public Person (int _health) {
-		health = _health >= 0
-			   ? _health
-			   : INITIAL_HEALTH;
 
-		init_health = health;
+	public bool IsFacingRight() {
+		return isFacingRight;
 	}
 	
-	public void Damage( int damageInflicted ) {
+	public virtual void ToogleFacingDirection() {
+		isFacingRight = !isFacingRight;
+
+		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+	}
+	
+	public virtual void Damage( int damageInflicted ) {
 		health -= damageInflicted;
 
 		if ( health <= 0 ) {
 			health = 0;
 			Die ();
 		}
-
-		Debug.Log("Damage inflicted. " + health + " health left. Lives: " + lives);
 	}
 
-	public bool IsFacingRight() {
-		return isFacingRight;
-	}
+	public virtual void Die() {
+		lives = lives - 1;
 
-	public void ToogleFacingDirection() {
-		isFacingRight = !isFacingRight;
-		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-	}
-
-	public void Die() {
-		lives = lives - 1 > 0 ? lives - 1 : 0;
-
-		if (lives > 0)
+		if ( lives > 0 ) {
 			health = init_health;
+		}
 	}
 	
 	public bool IsAlive()		{ return health > 0; }

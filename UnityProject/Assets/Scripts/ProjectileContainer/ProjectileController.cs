@@ -32,8 +32,12 @@ public class ProjectileController : MonoBehaviour {
 			return;
 		}
 
-		if (_c.CompareTag("Enemy") && type != _c.GetComponent<EnemyModel>().type) {
-			Destroy(_c.gameObject);
+		if (_c.CompareTag("Enemy")) {
+			EnemyModel model = _c.GetComponent<EnemyModel>();
+
+			if (type != model.type) {
+				model.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
+			}
 		}
 
 		Destroy(gameObject);

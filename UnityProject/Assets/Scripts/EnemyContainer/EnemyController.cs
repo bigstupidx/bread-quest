@@ -27,13 +27,5 @@ public class EnemyController : MonoBehaviour {
 		{
 			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.ENEMY_COLLISION_DAMAGE);
 		}
-		else if (c.gameObject.tag == "Jelly")
-		{
-			
-		}
-		else if (c.gameObject.tag == "PeanutButter")
-		{
-			
-		}
 	}
 }

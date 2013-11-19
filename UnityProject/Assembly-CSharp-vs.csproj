@@ -52,12 +52,13 @@
      <Compile Include="Assets\Scripts\EnemyContainer\EnemyModel.cs" />
      <Compile Include="Assets\Scripts\GameContainer\DeadzoneController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\GameContainer.cs" />
+     <Compile Include="Assets\Scripts\GameContainer\GameOverController.cs" />
+     <Compile Include="Assets\Scripts\GameContainer\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\StageCamera.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IInteractive.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IMovable.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />
-     <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuContainer.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerModel.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\WeponController.cs" />
