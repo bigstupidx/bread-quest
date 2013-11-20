@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Abstractions\Person.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerContainer\PlayerModel.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerContainer\PlayerController.cs" Line="21" Column="3" />
-      <File FileName="Assets\Scripts\Abstractions\Person.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\GameContainer\GameContainer.cs" Line="11" Column="17" />
+      <File FileName="Assets\Scripts\PlayerContainer\PlayerModel.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\Abstractions\Person.cs" Line="51" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

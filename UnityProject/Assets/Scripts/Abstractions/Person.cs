@@ -46,4 +46,5 @@ public abstract class Person : MonoBehaviour, IDamageable
 	public bool IsAlive()		{ return health > 0; }
 	public int GetHealth() 		{ return health; 	 }
 	public bool HasLives()		{ return lives > 0;  }
+	public int GetLives() 		{ return lives; 	 }
 }

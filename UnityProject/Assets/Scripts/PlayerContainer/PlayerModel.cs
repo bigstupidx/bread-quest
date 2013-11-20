@@ -10,6 +10,10 @@ public class PlayerModel : Person {
 		wasFacingRight = IsFacingRight();
 	}
 
+	void OnGUI(){
+		GUI.Box(new Rect (10,10,100,50), "Lives: " + GetLives());
+	}
+
 	public bool WasFacingRight() {
 		return wasFacingRight;
 	}
