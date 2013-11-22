@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 		movement = new Vector3(0, 0, 0);
 		model = GetComponent<PlayerModel>();
 		controller = GetComponent<CharacterController>();
-	}	
+	}
 
 	void Update() {
 		ProcessMovement();

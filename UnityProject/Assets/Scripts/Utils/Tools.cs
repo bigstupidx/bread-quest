@@ -11,8 +11,8 @@ public class Tools
 			: target;
 	}
 	
-	public static GameContainer GameContainer() {
-		return Camera.main.GetComponent<GameContainer>();
+	public static GameController GameController() {
+		return Camera.main.GetComponent<GameController>();
 	}
 
 	public static bool IsNullObject(GameObject _o) {
@@ -21,6 +21,6 @@ public class Tools
 	}
 
 	public static GameObject Player() {
-		return GameContainer().instantiatedPlayer;
+		return GameController().instantiatedPlayer;
 	}
 }

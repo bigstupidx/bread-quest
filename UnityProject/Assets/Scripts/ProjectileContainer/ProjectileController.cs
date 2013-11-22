@@ -14,6 +14,10 @@ public class ProjectileController : MonoBehaviour {
 		}
 	}
 
+	public ElementType Type() {
+		return type;
+	}
+
 	void Update() {
 		lifeTime -= Time.deltaTime;
 		
@@ -28,16 +32,17 @@ public class ProjectileController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider _c) {
 
-		if (Tools.IsNullObject(_c.gameObject)) {
+		// avoid collision with all undesired objects, like movement inversion zones or the player itself.
+		if (Tools.IsNullObject(_c.gameObject) || _c.CompareTag("Player")) {
 			return;
 		}
 
-		if (_c.CompareTag("Enemy")) {
-			EnemyModel model = _c.GetComponent<EnemyModel>();
+		IDamageable target = _c.GetComponent(typeof(IDamageable)) as IDamageable;
 
-			if (type != model.type) {
-				model.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
-			}
+		// target is damageable (because it implements the interface IDamageable)
+		// and its type is different from the attack's type
+		if (target != null && type != target.Type ()) {
+			target.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
 		}
 
 		Destroy(gameObject);

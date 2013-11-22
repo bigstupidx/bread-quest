@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class GameContainer : MonoBehaviour
+public class GameController : MonoBehaviour
 {
 	public GameObject originalPlayer, instantiatedPlayer;
 	StageCamera cam;

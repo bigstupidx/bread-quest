@@ -4,8 +4,10 @@ public abstract class Person : MonoBehaviour, IDamageable
 {
 	public const int INITIAL_HEALTH = 100, INITIAL_EXPERIENCE = 0, MAX_SPEED = 10, JUMP_SPEED = 30,
 		FALL_DAMAGE = 100, ENEMY_COLLISION_DAMAGE = 100, INITIAL_LIVES = 3;
+
+	public ElementType type;
+
 	int health;
-	int init_health; //this is so that is the user specifies a health, it is reset to that
 	int lives;
 
 	bool isFacingRight = true;
@@ -13,7 +15,6 @@ public abstract class Person : MonoBehaviour, IDamageable
 	public Person () {
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
-		init_health = health;
 	}
 
 	public bool IsFacingRight() {
@@ -39,8 +40,12 @@ public abstract class Person : MonoBehaviour, IDamageable
 		lives = lives - 1;
 
 		if ( lives > 0 ) {
-			health = init_health;
+			health = INITIAL_HEALTH;
 		}
+	}
+
+	public ElementType Type() {
+		return type;
 	}
 	
 	public bool IsAlive()		{ return health > 0; }
