@@ -11,7 +11,16 @@ public class PlayerModel : Person {
 		GUI.Box(new Rect (10,10,100,50), "Lives: " + GetLives());
 	}
 
-	public void Damage(int _damage, bool _respawn) {
+	public override void Damage(int _damage) {
+		base.Damage (_damage);
+
+		if (IsAlive()) {
+			GetComponent<AudioSource>().Play();
+		}
+	}
+
+	public void Damage(int _damage, bool _respawn)
+	{
 		Damage(_damage);
 
 		if (_respawn) {

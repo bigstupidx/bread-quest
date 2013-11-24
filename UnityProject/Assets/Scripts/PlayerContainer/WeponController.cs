@@ -16,13 +16,16 @@ public class WeponController : MonoBehaviour {
 
 	IEnumerator Attack(ElementType _projectile)
 	{
+		Vector3 pos = transform.position;
+
 		yield return new WaitForSeconds(0.5f);
 
+		audio.Play();
 		GameObject projectile = Instantiate(
 			_projectile == ElementType.JELLY
 				? projectileJelly
 				: projectilePB,
-			transform.position,
+			pos,
 			Quaternion.identity
 		) as GameObject;
 
