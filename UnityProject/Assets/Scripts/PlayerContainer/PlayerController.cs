@@ -22,9 +22,6 @@ public class PlayerController : MonoBehaviour {
 		// process horizontal movement
 		movement.x = Input.GetAxis("Horizontal") * PlayerModel.MAX_SPEED;
 
-		//Debug.Log ("PlayerController@ProcessMovement called.");
-		//Debug.Log(controller.isGrounded);
-
 		// if is jumping, apply gravity. Otherwise, process vertical movement.
 		if (!controller.isGrounded) {
 			movement.y -= Physics.gravity.magnitude;
@@ -37,10 +34,12 @@ public class PlayerController : MonoBehaviour {
 			model.ToogleFacingDirection();
 		}
 
-		if (movement.x != 0) {
-			animator.SetBool("running", true);
-		} else {
-			animator.SetBool("running", false);
+		animator.SetBool("running", movement.x != 0);
+
+		if (Input.GetButtonDown("Fire1")) {
+			animator.Play("Attack-1");
+		} else if (Input.GetButtonDown("Fire2")) {
+			animator.Play("Attack-2");
 		}
 
 		// make actual movement

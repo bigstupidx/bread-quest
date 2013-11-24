@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class WeponController : MonoBehaviour {
@@ -7,21 +8,15 @@ public class WeponController : MonoBehaviour {
 
 	void Update () {
 		if ( Input.GetButtonDown("Fire1") ) {
-			//yield return new WaitForSeconds (1);
-
-			Tools.Player().GetComponent<Animator>().Play("Attack-1");
-			Attack (ElementType.JELLY);
+			StartCoroutine(Attack (ElementType.JELLY));
 		} else if ( Input.GetButtonDown("Fire2") ) {
-			//yield return new WaitForSeconds (1);
-
-			Tools.Player().GetComponent<Animator>().Play("Attack-2");
-			Attack (ElementType.PB);
+			StartCoroutine(Attack (ElementType.PB));
 		}
 	}
 
-	void Attack(ElementType _projectile)
+	IEnumerator Attack(ElementType _projectile)
 	{
-		Debug.Log ("WeponController@Attack called");
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject projectile = Instantiate(
 			_projectile == ElementType.JELLY
