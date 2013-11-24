@@ -7,15 +7,22 @@ public class WeponController : MonoBehaviour {
 
 	void Update () {
 		if ( Input.GetButtonDown("Fire1") ) {
-			Attack (ElementType.JELLY);
+			//yield return new WaitForSeconds (1);
 
+			Tools.Player().GetComponent<Animator>().Play("Attack-1");
+			Attack (ElementType.JELLY);
 		} else if ( Input.GetButtonDown("Fire2") ) {
+			//yield return new WaitForSeconds (1);
+
+			Tools.Player().GetComponent<Animator>().Play("Attack-2");
 			Attack (ElementType.PB);
 		}
 	}
 
 	void Attack(ElementType _projectile)
 	{
+		Debug.Log ("WeponController@Attack called");
+
 		GameObject projectile = Instantiate(
 			_projectile == ElementType.JELLY
 				? projectileJelly

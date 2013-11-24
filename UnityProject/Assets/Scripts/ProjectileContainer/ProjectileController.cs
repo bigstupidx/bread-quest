@@ -31,7 +31,6 @@ public class ProjectileController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider _c) {
-
 		// avoid collision with all undesired objects, like movement inversion zones or the player itself.
 		if (Tools.IsNullObject(_c.gameObject) || _c.CompareTag("Player")) {
 			return;
