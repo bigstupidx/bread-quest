@@ -15,7 +15,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		ProcessMovement();
+		if (controller.enabled)
+			ProcessMovement();
+	}
+
+	public void Active () {
+		controller.enabled = true;
+	}
+
+	public void Deactive () {
+		controller.enabled = false;
 	}
 	
 	public void ProcessMovement() {
@@ -35,12 +44,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		animator.SetBool("running", movement.x != 0);
-
-		if (Input.GetButtonDown("Fire1")) {
-			animator.Play("Attack-1");
-		} else if (Input.GetButtonDown("Fire2")) {
-			animator.Play("Attack-2");
-		}
 
 		// make actual movement
 		controller.Move(movement * Time.deltaTime);

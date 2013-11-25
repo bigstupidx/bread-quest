@@ -1,13 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerContainer\PlayerModel.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerContainer\WeponController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Abstractions\Person.cs" Line="31" Column="3" />
-      <File FileName="Assets\Scripts\PlayerContainer\PlayerModel.cs" Line="23" Column="3" />
+      <File FileName="Assets\Scripts\PlayerContainer\WeponController.cs" Line="45" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\lucasdavid\Documents\GitHub\GMAP-digital-game\UnityProject\Assets\Scripts\PlayerContainer\WeponController.cs" line="45" />
+      <Breakpoint file="C:\Users\lucasdavid\Documents\GitHub\GMAP-digital-game\UnityProject\Assets\Scripts\PlayerContainer\WeponController.cs" line="11" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

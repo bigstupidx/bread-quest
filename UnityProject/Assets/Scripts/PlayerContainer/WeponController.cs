@@ -5,17 +5,23 @@ using System.Collections.Generic;
 public class WeponController : MonoBehaviour {
 
 	public GameObject projectileJelly, projectilePB;
+	bool isFiring = false;
 
 	void Update () {
-		if ( Input.GetButtonDown("Fire1") ) {
-			StartCoroutine(Attack (ElementType.JELLY));
-		} else if ( Input.GetButtonDown("Fire2") ) {
-			StartCoroutine(Attack (ElementType.PB));
+		if ( ! isFiring ) {
+			if ( Input.GetButtonDown("Fire1") ) {
+				Tools.Player().GetComponent<Animator>().Play("Attack-1");
+				StartCoroutine(Attack (ElementType.JELLY));
+			} else if ( Input.GetButtonDown("Fire2") ) {
+				Tools.Player().GetComponent<Animator>().Play("Attack-2");
+				StartCoroutine(Attack (ElementType.PB));
+			}
 		}
 	}
 
 	IEnumerator Attack(ElementType _projectile)
 	{
+		isFiring = true;
 		Vector3 pos = transform.position;
 
 		yield return new WaitForSeconds(0.5f);
@@ -34,5 +40,8 @@ public class WeponController : MonoBehaviour {
 		projectile.GetComponent<ProjectileController>().GoingRight(
 			transform.parent.GetComponent<PlayerModel>().IsFacingRight()
 		);
+
+		yield return new WaitForSeconds(0.2f);
+		isFiring = false;
 	}
 }
