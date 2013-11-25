@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Interfaces\IMovable.cs" />
      <Compile Include="Assets\Scripts\ItemsContainer\CrateModel.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />
+     <Compile Include="Assets\Scripts\Particlesystem.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\PlayerModel.cs" />
      <Compile Include="Assets\Scripts\PlayerContainer\WeponController.cs" />

@@ -1,32 +1,42 @@
 ﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	
-	Vector3 movement;
+
 	CharacterController controller;
-	PlayerModel model;
-	Animator animator;
-	
+	Vector3 			movement;
+	Animator 			animator;
+	PlayerModel 		model;
+
 	void Start() {
-		movement = new Vector3(0, 0, 0);
-		model = GetComponent<PlayerModel>();
-		controller = GetComponent<CharacterController>();
-		animator = GetComponent<Animator>();
+		movement 	= Vector3.zero;
+		model 		= GetComponent<PlayerModel>();
+		controller  = GetComponent<CharacterController>();
+		animator 	= GetComponent<Animator>();
 	}
 
 	void Update() {
-		if (controller.enabled)
+		if (controller.enabled) {
 			ProcessMovement();
+		}
 	}
 
+	/**
+	 * Used by the animator
+	 */
 	public void Active () {
 		controller.enabled = true;
 	}
 
+	/**
+	 * Used by the animator
+	 */
 	public void Deactive () {
 		controller.enabled = false;
 	}
-	
+
+	/**
+	 * All movements applied to the character are processed here.
+	 */
 	public void ProcessMovement() {
 		// process horizontal movement
 		movement.x = Input.GetAxis("Horizontal") * PlayerModel.MAX_SPEED;
@@ -43,6 +53,7 @@ public class PlayerController : MonoBehaviour {
 			model.ToogleFacingDirection();
 		}
 
+		// if the player is moving, set animation to running
 		animator.SetBool("running", movement.x != 0);
 
 		// make actual movement

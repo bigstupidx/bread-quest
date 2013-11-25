@@ -6,9 +6,11 @@ public class Tools
 		float dir = Mathf.Sign(target - current);
 		current += dir * acceleration * Time.deltaTime;
 		
-		return (target - current) * dir > 0
+		return
+			0 < (target - current) * dir
 			? current
-			: target;
+			: target
+			;
 	}
 	
 	public static GameController GameController() {

@@ -7,9 +7,8 @@ public abstract class Person : MonoBehaviour, IDamageable
 
 	public ElementType type;
 
-	int health;
 	int lives;
-
+	int health;
 	bool isFacingRight = true;
 	
 	public Person () {
@@ -23,7 +22,6 @@ public abstract class Person : MonoBehaviour, IDamageable
 	
 	public virtual void ToogleFacingDirection() {
 		isFacingRight = !isFacingRight;
-
 		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	

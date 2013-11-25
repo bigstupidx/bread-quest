@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ProjectileController : MonoBehaviour {
 	public ElementType type;
@@ -6,6 +7,11 @@ public class ProjectileController : MonoBehaviour {
 
 	bool goingRight = true;
 
+	/**
+	 * Define direction of projectile
+	 * 
+	 * @param _goingRight bool
+	 */
 	public void GoingRight(bool _goingRight) {
 		goingRight = _goingRight;
 
@@ -14,22 +20,59 @@ public class ProjectileController : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * Return element of the projectile
+	 * 
+	 * @return ElementType
+	 */
 	public ElementType Type() {
 		return type;
 	}
 
-	void Update() {
-		lifeTime -= Time.deltaTime;
-		
-		if (lifeTime <= 0) {
-			Destroy(gameObject);
-		}
+	/**
+	 * Asynchronous method WaitForLifeTime
+	 * 
+	 * @return IEnumerator
+	 */
+	IEnumerator WaitForLifeTime() {
+		yield return new WaitForSeconds(lifeTime);
+		Destroy();
 	}
 
+	void Destroy() {
+		GameObject explosion = GameObject.Find("ProjectileExplosion");
+
+		// show explosion effect
+		explosion.transform.position = gameObject.transform.position;
+		explosion.particleSystem.startColor
+			= Type () == ElementType.JELLY
+			? Color.magenta
+			: Color.yellow
+			;
+		explosion.particleSystem.Play();
+
+		// destroy projectile
+		Destroy(gameObject);
+	}
+
+	void Start() {
+		StartCoroutine(this.WaitForLifeTime());
+	}
+
+	/**
+	 * Add movement to the projectile
+	 */
 	void FixedUpdate() {
-		GetComponent<Rigidbody>().AddForce((goingRight ? Vector3.right : Vector3.left) * 10);
+		GetComponent<Rigidbody>().AddForce(10 * (
+			goingRight
+			? Vector3.right
+			: Vector3.left
+		));
 	}
 
+	/**
+	 * Handles collision with objects
+	 */
 	void OnTriggerEnter(Collider _c) {
 		// avoid collision with all undesired objects, like movement inversion zones or the player itself.
 		if (Tools.IsNullObject(_c.gameObject) || _c.CompareTag("Player")) {
@@ -44,6 +87,6 @@ public class ProjectileController : MonoBehaviour {
 			target.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
 		}
 
-		Destroy(gameObject);
+		this.Destroy();
 	}
 }
