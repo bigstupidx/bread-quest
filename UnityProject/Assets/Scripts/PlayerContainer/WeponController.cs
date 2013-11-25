@@ -10,10 +10,8 @@ public class WeponController : MonoBehaviour {
 	void Update () {
 		if ( ! isFiring ) {
 			if ( Input.GetButtonDown("Fire1") ) {
-				Tools.Player().GetComponent<Animator>().Play("Attack-1");
 				StartCoroutine(Attack (ElementType.JELLY));
 			} else if ( Input.GetButtonDown("Fire2") ) {
-				Tools.Player().GetComponent<Animator>().Play("Attack-2");
 				StartCoroutine(Attack (ElementType.PB));
 			}
 		}

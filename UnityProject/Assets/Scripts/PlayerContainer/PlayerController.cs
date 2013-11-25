@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
@@ -21,40 +22,41 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	/**
-	 * Used by the animator
-	 */
-	public void Active () {
-		controller.enabled = true;
-	}
-
-	/**
-	 * Used by the animator
-	 */
-	public void Deactive () {
-		controller.enabled = false;
-	}
-
-	/**
 	 * All movements applied to the character are processed here.
 	 */
 	public void ProcessMovement() {
 		// process horizontal movement
 		movement.x = Input.GetAxis("Horizontal") * PlayerModel.MAX_SPEED;
 
+		animator.SetBool("isGrounded", controller.isGrounded);
+
 		// if is jumping, apply gravity. Otherwise, process vertical movement.
-		if (!controller.isGrounded) {
+		if ( ! controller.isGrounded ) {
+		
 			movement.y -= Physics.gravity.magnitude;
+		
 		} else if (Input.GetButtonDown("Jump")) {
-			movement.y = PlayerModel.JUMP_SPEED;
-			animator.Play("Jumping");
+		
+			movement.y  = PlayerModel.JUMP_SPEED;
+			animator.SetTrigger("Jump");
+
 		}
+
+		if (Input.GetButtonDown("Fire1")) {
+			animator.SetTrigger("Attack-1");
+
+		} else if (Input.GetButtonDown("Fire2")) {
+			animator.SetTrigger("Attack-2");
+		} else // if the player is moving, set animation to running
+			animator.SetTrigger (
+				movement.x == 0
+				? "Idle"
+				: "Run"
+			);
 
 		if (movement.x < 0 && model.IsFacingRight() || movement.x > 0 && !model.IsFacingRight()) {
 			model.ToogleFacingDirection();
 		}
-
-		// if the player is moving, set animation to running
-		animator.SetBool("running", movement.x != 0);
 
 		// make actual movement
 		controller.Move(movement * Time.deltaTime);
