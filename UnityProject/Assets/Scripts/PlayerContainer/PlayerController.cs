@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 		animator.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
 
 		// facing direction change
-		if (movement.x < 0 && model.IsFacingRight() || movement.x > 0 && !model.IsFacingRight()) {
+		if (movement.x < 0 && model.FacingRight() || movement.x > 0 && !model.FacingRight()) {
 			model.ToogleFacingDirection();
 		}
 

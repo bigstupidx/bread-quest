@@ -18,7 +18,7 @@ public class StageCamera : MonoBehaviour {
 			float targetX;
 			float targetY;
 
-			if ( Tools.Player().GetComponent<PlayerModel>().IsFacingRight() ) {
+			if ( Tools.Player().GetComponent<PlayerModel>().FacingRight() ) {
 				targetX = target.position.x + DIST_AHEAD_PLAYER;
 			} else {
 				targetX = target.position.x - DIST_AHEAD_PLAYER;

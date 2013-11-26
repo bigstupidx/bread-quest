@@ -28,7 +28,7 @@ public class WeponController : MonoBehaviour {
 		// if player is facing the right direction, throw element to the right direction.
 		// Throw element to the left direction, otherwise.
 		projectile.GetComponent<ProjectileController>().GoingRight(
-			transform.parent.GetComponent<PlayerModel>().IsFacingRight()
+			transform.parent.GetComponent<PlayerModel>().FacingRight()
 		);
 
 		yield return new WaitForSeconds(0.2f);

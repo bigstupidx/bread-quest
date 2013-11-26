@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour {
 
 	void ProcessMovement() {
 		transform.Translate(
-			(model.IsFacingRight() ? Vector3.right : Vector3.left ) * 2 * Time.deltaTime
+			(model.FacingRight() ? Vector3.right : Vector3.left ) * 2 * Time.deltaTime
     	);
 	}
 
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
 		if (c.CompareTag("EnemyMovementInversionZone")) {
 			model.ToogleFacingDirection();
 		}
-		else if (c.gameObject.tag == "Player" && model.isHostile())
+		else if (c.gameObject.tag == "Player")
 		{
 			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.ENEMY_COLLISION_DAMAGE);
 		}

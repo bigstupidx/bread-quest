@@ -32,7 +32,7 @@ public class PlayerModel : Person {
 	{
 		base.Die ();
 
-		if ( !IsAlive() ) {
+		if ( ! IsAlive() ) {
 			Application.LoadLevel("game-over");
 		}
 	}

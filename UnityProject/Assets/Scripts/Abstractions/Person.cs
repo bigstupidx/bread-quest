@@ -9,20 +9,25 @@ public abstract class Person : MonoBehaviour, IDamageable
 
 	int lives;
 	int health;
-	bool isFacingRight = true;
-	
+	bool vunerable;
+	bool facingRight = true;
+
 	public Person () {
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
 	}
 
-	public bool IsFacingRight() {
-		return isFacingRight;
+	public bool FacingRight() {
+		return facingRight;
 	}
 	
 	public virtual void ToogleFacingDirection() {
-		isFacingRight = !isFacingRight;
+		facingRight = !facingRight;
 		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+	}
+
+	public bool IsVunerable() {
+		return vunerable;
 	}
 	
 	public virtual void Damage( int damageInflicted ) {
@@ -35,10 +40,12 @@ public abstract class Person : MonoBehaviour, IDamageable
 	}
 
 	public virtual void Die() {
+		GetComponent<Animator>().SetTrigger("Die");
 		lives = lives - 1;
 
 		if ( lives > 0 ) {
 			health = INITIAL_HEALTH;
+			GetComponent<Animator>().SetTrigger("Spawn");
 		}
 	}
 

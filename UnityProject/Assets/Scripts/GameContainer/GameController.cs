@@ -18,8 +18,9 @@ public class GameController : MonoBehaviour
 	}
 	
 	public void SpawnPlayer() {
-		instantiatedPlayer = Instantiate(originalPlayer, Vector3.up * 10, Quaternion.identity) as GameObject;
-		
+		instantiatedPlayer = Instantiate(originalPlayer) as GameObject;
+		this.ResetPlayerPosition();
+
 		cam.SetTarget(instantiatedPlayer.transform);
 	}
 	
