@@ -7,29 +7,21 @@ public class WeponController : MonoBehaviour {
 	public GameObject projectileJelly, projectilePB;
 	bool isFiring = false;
 
-	void Update () {
-		if ( ! isFiring ) {
-			if ( Input.GetButtonDown("Fire1") ) {
-				StartCoroutine(Attack (ElementType.JELLY));
-			} else if ( Input.GetButtonDown("Fire2") ) {
-				StartCoroutine(Attack (ElementType.PB));
-			}
-		}
+	public bool IsFiring() {
+		return isFiring;
 	}
 
-	IEnumerator Attack(ElementType _projectile)
+	public IEnumerator Attack(ElementType _projectile)
 	{
 		isFiring = true;
-		Vector3 pos = transform.position;
-
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.3f);
 
 		audio.Play();
 		GameObject projectile = Instantiate(
 			_projectile == ElementType.JELLY
 				? projectileJelly
 				: projectilePB,
-			pos,
+			transform.position,
 			Quaternion.identity
 		) as GameObject;
 
@@ -41,5 +33,6 @@ public class WeponController : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.2f);
 		isFiring = false;
+
 	}
 }
