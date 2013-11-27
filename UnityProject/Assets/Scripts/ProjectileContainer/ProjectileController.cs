@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 public class ProjectileController : MonoBehaviour {
+	// element of this projectile
 	public ElementType type;
+	// time (in seconds) in which the projectile does exists
 	public float lifeTime;
-
+	// control variable used to increase force to the corrent side in which the projectile was thrown
 	bool goingRight = true;
 
 	/**

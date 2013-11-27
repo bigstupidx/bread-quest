@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
+		// if the player is firing a projectile, he cannot do it again
 		if ( ! wepon.IsFiring() ) {
 			if (Input.GetButtonDown("Fire1")) {
 				animator.SetTrigger("Attack-1");
