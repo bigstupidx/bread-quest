@@ -12,6 +12,7 @@ public abstract class Person : MonoBehaviour, IDamageable
 	bool vunerable;
 	bool facingRight = true;
 
+
 	public Person () {
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
