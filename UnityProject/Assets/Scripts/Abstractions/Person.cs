@@ -1,4 +1,5 @@
-	using UnityEngine;
+using UnityEngine;
+using System.Collections;
 
 public abstract class Person : MonoBehaviour, IDamageable
 {
@@ -9,13 +10,14 @@ public abstract class Person : MonoBehaviour, IDamageable
 
 	int lives;
 	int health;
-	bool vunerable;
-	bool facingRight = true;
+	public bool vunerable;
+	bool facingRight;
 
 
 	public Person () {
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
+		facingRight = true;
 	}
 
 	public bool FacingRight() {
@@ -26,29 +28,30 @@ public abstract class Person : MonoBehaviour, IDamageable
 		facingRight = !facingRight;
 		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
-
-	public bool IsVunerable() {
-		return vunerable;
-	}
 	
 	public virtual void Damage( int damageInflicted ) {
-		health -= damageInflicted;
+		if ( vunerable ) {
+			vunerable = false;
+			health -= damageInflicted;
 
-		if ( health <= 0 ) {
-			health = 0;
-			Die ();
+			if ( health <= 0 ) {
+				health = 0;
+				Die ();
+			}
 		}
 	}
 
 	public virtual void Die() {
-		GetComponent<Animator>().SetTrigger("Die");
 		lives = lives - 1;
 
 		if ( lives > 0 ) {
 			health = INITIAL_HEALTH;
-			GetComponent<Animator>().SetTrigger("Spawn");
 		}
+
+		StartCoroutine(ProcessDeath());
 	}
+
+	protected abstract IEnumerator ProcessDeath();
 
 	public ElementType Type() {
 		return type;

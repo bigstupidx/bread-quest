@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject originalPlayer, instantiatedPlayer;
+	public GameObject instantiatedPlayer;
 	StageCamera cam;
+	Vector3 position;
 
 	public void Start() {
 		cam = GetComponent<StageCamera>();
@@ -17,14 +18,17 @@ public class GameController : MonoBehaviour
 		}
 	}
 	
-	public void SpawnPlayer() {
-		instantiatedPlayer = Instantiate(originalPlayer) as GameObject;
+	void SpawnPlayer() {
+		position = new Vector3(-5, 10, 0);
 		this.ResetPlayerPosition();
-
 		cam.SetTarget(instantiatedPlayer.transform);
 	}
 	
 	public void ResetPlayerPosition() {
-		instantiatedPlayer.transform.position = Vector3.up * 10;
+		instantiatedPlayer.transform.position = position + new Vector3(0, 1, 0);
+	}
+
+	public void SetPlayerPosition(Vector3 _position) {
+		position = _position;
 	}
 }

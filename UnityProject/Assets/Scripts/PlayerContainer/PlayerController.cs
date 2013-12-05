@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		ProcessMovement();
+		if (controller.enabled) {
+			ProcessMovement();
+		}
 	}
 
 	/**

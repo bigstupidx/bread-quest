@@ -10,7 +10,9 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update() {
-		ProcessMovement();
+		if (model.vunerable) {
+			ProcessMovement();
+		}
 	}
 
 	void ProcessMovement() {
@@ -23,7 +25,7 @@ public class EnemyController : MonoBehaviour {
 		if (c.CompareTag("EnemyMovementInversionZone")) {
 			model.ToogleFacingDirection();
 		}
-		else if (c.gameObject.tag == "Player")
+		else if (c.gameObject.tag == "Player" && model.vunerable)
 		{
 			c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.ENEMY_COLLISION_DAMAGE);
 		}

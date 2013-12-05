@@ -1,39 +1,38 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerModel : Person {
-	int experience;
+	public const float DEATH_TIME = 0.5f, UNVUNERABLE_TIME = 0.5f;
 
+	int experience;
 
 	void Start() {
 		experience = INITIAL_EXPERIENCE;
 	}
 
-
 	public override void Damage(int _damage) {
-		base.Damage (_damage);
-
-		if (IsAlive()) {
+		if (vunerable) {
+			base.Damage (_damage);
 			GetComponent<AudioSource>().Play();
 		}
 	}
 
-	public void Damage(int _damage, bool _respawn)
-	{
-		Damage(_damage);
+	protected override IEnumerator ProcessDeath() {
+		GetComponent<CharacterController>().enabled = false;
+		GetComponent<Animator>().SetTrigger("Die");
+		yield return new WaitForSeconds(DEATH_TIME);
 
-		if (_respawn) {
+		GetComponent<CharacterController>().enabled = true;
+		GetComponent<Animator>().SetTrigger("Spawn");
+
+		if ( IsAlive() ) {
 			Tools.GameController().ResetPlayerPosition();
-		}
-	}
-
-	public override void Die ()
-	{
-		base.Die ();
-
-		if ( ! IsAlive() ) {
+		} else {
 			Application.LoadLevel("game-over");
 		}
 
+		yield return new WaitForSeconds(UNVUNERABLE_TIME);
+		vunerable = true;
 	}
 	
 	public int GetExperience()  { return experience; }
