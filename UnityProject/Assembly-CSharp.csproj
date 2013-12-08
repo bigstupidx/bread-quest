@@ -50,7 +50,6 @@
      <Compile Include="Assets\Scripts\Abstractions\Person.cs" />
      <Compile Include="Assets\Scripts\EnemyContainer\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyContainer\EnemyModel.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\CheckpointController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\DeadzoneController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\GameController.cs" />
      <Compile Include="Assets\Scripts\GameContainer\GameOverController.cs" />
