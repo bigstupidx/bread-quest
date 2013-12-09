@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DoorController : MonoBehaviour {
 
-	void OnTriggerCollider() {
+	void OnTriggerEnter(Collider _c) {
 		Application.LoadLevel("Win");
 	}
 }

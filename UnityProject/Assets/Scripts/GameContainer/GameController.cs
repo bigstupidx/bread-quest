@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 	}
 	
 	void SpawnPlayer() {
-		position = new Vector3(-5, 10, 0);
+		position = instantiatedPlayer.transform.position;
 		this.ResetPlayerPosition();
 		cam.SetTarget(instantiatedPlayer.transform);
 	}
