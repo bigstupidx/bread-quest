@@ -15,18 +15,23 @@ public class ReturnableScreenController : MonoBehaviour
 	const float MINIMUM_TIME = 2f;
 	bool canGoBack = false;
 
+	public string levelToReturn;
+
 	IEnumerator StayHere() {
 		yield return new WaitForSeconds(MINIMUM_TIME);
 		canGoBack = true;
 	}
 
 	void Start() {
+		if (levelToReturn == "") {
+			levelToReturn = "main-menu";
+		}
 		StartCoroutine(StayHere());
 	}
 
 	void Update() {
 		if (canGoBack && Input.anyKey) {
-			Application.LoadLevel("main-menu");
+			Application.LoadLevel(levelToReturn);
 		}
 	}
 }

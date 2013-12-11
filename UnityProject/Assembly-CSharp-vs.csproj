@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CreditContainer\NameControlller.cs" />
      <Compile Include="Assets\Scripts\GameOverContainer\ReturnableScreenController.cs" />
      <Compile Include="Assets\Scripts\IntroContainer\IntroController.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />

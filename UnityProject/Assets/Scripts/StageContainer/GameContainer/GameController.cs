@@ -13,8 +13,8 @@ public class GameController : MonoBehaviour
 	}
 
 	public void Update() {
-		if (Input.GetButton("Exit")) {
-			Application.Quit();
+		if (Input.GetButton("Enter") || Input.GetButton("Exit")) {
+			Application.LoadLevel("main-menu");
 		}
 	}
 	

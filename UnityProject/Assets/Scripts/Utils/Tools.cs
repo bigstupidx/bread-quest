@@ -27,6 +27,6 @@ public class Tools
 	}
 
 	public static GameObject Player() {
-		return GameController().instantiatedPlayer;
+		return GameObject.Find ("player");
 	}
 }
