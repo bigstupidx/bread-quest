@@ -6,7 +6,7 @@ public class MainMenuController : MonoBehaviour {
 		if (Input.GetButton("Fire1")
 		    || Input.GetButton("Enter")
 		    || Input.GetButton("Jump")) {
-			Application.LoadLevel("stage-1");
+			Application.LoadLevel("intro");
 		}
 
 		if (Input.GetButton("Exit")) {

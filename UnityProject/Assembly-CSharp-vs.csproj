@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,29 +46,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Abstractions\ElementType.cs" />
-     <Compile Include="Assets\Scripts\Abstractions\Person.cs" />
-     <Compile Include="Assets\Scripts\EnemyContainer\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\EnemyContainer\EnemyModel.cs" />
-     <Compile Include="Assets\Scripts\EnemyContainer\turretController.cs" />
-     <Compile Include="Assets\Scripts\GUI\GUI_Controller.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\CheckpointController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\DeadzoneController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\DoorController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\GameController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\GameOverController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\MainMenuController.cs" />
-     <Compile Include="Assets\Scripts\GameContainer\StageCamera.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IInteractive.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IMovable.cs" />
-     <Compile Include="Assets\Scripts\ItemsContainer\CrateModel.cs" />
+     <Compile Include="Assets\Scripts\GameOverContainer\GameOverController.cs" />
+     <Compile Include="Assets\Scripts\IntroContainer\IntroController.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />
-     <Compile Include="Assets\Scripts\PlayerContainer\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\PlayerContainer\PlayerModel.cs" />
-     <Compile Include="Assets\Scripts\PlayerContainer\WeponController.cs" />
-     <Compile Include="Assets\Scripts\ProjectileContainer\KnifeController.cs" />
-     <Compile Include="Assets\Scripts\ProjectileContainer\ProjectileController.cs" />
+     <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\Abstractions\ElementType.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\Abstractions\Person.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\EnemyModel.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\turretController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GameContainer\CheckpointController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GameContainer\DeadzoneController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GameContainer\DoorController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GameContainer\GameController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GameContainer\StageCamera.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GuiContainer\GuiContainer.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\Interfaces\IInteractive.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\Interfaces\IMovable.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\ItemsContainer\CrateModel.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\PlayerContainer\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\PlayerContainer\PlayerModel.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\PlayerContainer\WeponController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\ProjectileContainer\KnifeController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\ProjectileContainer\ProjectileController.cs" />
      <Compile Include="Assets\Scripts\Utils\Particlesystem.cs" />
      <Compile Include="Assets\Scripts\Utils\Tools.cs" />
   </ItemGroup>
