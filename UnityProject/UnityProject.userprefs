@@ -1,6 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ProjectileContainer\KnifeController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\ProjectileContainer\KnifeController.cs" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\EnemyContainer\turretController.cs" Line="16" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
