@@ -4,7 +4,10 @@ using System.Collections;
 public class IntroController : MonoBehaviour {
 
 	void Update() {
-		if (Input.anyKey) {
+		if (Input.GetButton("Fire1")
+		    || Input.GetButton("Fire2")
+		    || Input.GetButton("Enter")
+		    || Input.GetButton("Jump")) {
 			SkipCinematic();
 		}
 	}

@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GameOverContainer\GameOverController.cs" />
+     <Compile Include="Assets\Scripts\GameOverContainer\ReturnableScreenController.cs" />
      <Compile Include="Assets\Scripts\IntroContainer\IntroController.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />
      <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuController.cs" />
@@ -55,12 +55,12 @@
      <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\EnemyController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\EnemyModel.cs" />
      <Compile Include="Assets\Scripts\StageContainer\EnemyContainer\turretController.cs" />
+     <Compile Include="Assets\Scripts\StageContainer\GUIContainer\GUIController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\GameContainer\CheckpointController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\GameContainer\DeadzoneController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\GameContainer\DoorController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\GameContainer\GameController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\GameContainer\StageCamera.cs" />
-     <Compile Include="Assets\Scripts\StageContainer\GuiContainer\GuiContainer.cs" />
      <Compile Include="Assets\Scripts\StageContainer\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\Scripts\StageContainer\Interfaces\IInteractive.cs" />
      <Compile Include="Assets\Scripts\StageContainer\Interfaces\IMovable.cs" />

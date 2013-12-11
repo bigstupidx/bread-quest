@@ -17,6 +17,11 @@ public class PlayerModel : Person {
 		}
 	}
 
+	public override void Die() {
+		base.Die ();
+		Tools.GUIController().DropLifeToken();
+	}
+
 	protected override IEnumerator ProcessDeath() {
 		GetComponent<CharacterController>().enabled = false;
 		GetComponent<Animator>().SetTrigger("Die");

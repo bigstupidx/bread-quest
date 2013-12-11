@@ -12,6 +12,10 @@ public class Tools
 			: target
 			;
 	}
+
+	public static GUIController GUIController() {
+		return GameObject.Find("GUI").GetComponent<GUIController>();
+	}
 	
 	public static GameController GameController() {
 		return Camera.main.GetComponent<GameController>();

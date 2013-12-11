@@ -8,12 +8,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using UnityEngine;
+using System.Collections;
 
-public class GameOverController : MonoBehaviour
+public class ReturnableScreenController : MonoBehaviour
 {
+	const float MINIMUM_TIME = 2f;
+	bool canGoBack = false;
+
+	IEnumerator StayHere() {
+		yield return new WaitForSeconds(MINIMUM_TIME);
+		canGoBack = true;
+	}
+
+	void Start() {
+		StartCoroutine(StayHere());
+	}
+
 	void Update() {
-		if (Input.GetButton("Exit")) {
-			Application.Quit();
+		if (canGoBack && Input.anyKey) {
+			Application.LoadLevel("main-menu");
 		}
 	}
 }
