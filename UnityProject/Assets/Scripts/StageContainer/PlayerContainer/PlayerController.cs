@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
 	CharacterController controller;
 	WeponController 	wepon;
 	Vector3 			movement;
 	Animator 			animator;
 	PlayerModel 		model;
 
-	void Start() {
+	void Start()
+	{
 		movement 	= Vector3.zero;
 		model 		= GetComponent<PlayerModel>();
 		wepon 		= gameObject.GetComponentInChildren<WeponController>();
@@ -17,36 +18,33 @@ public class PlayerController : MonoBehaviour {
 		animator 	= GetComponent<Animator>();
 	}
 
-	void Update() {
-		if (controller.enabled) {
+	void Update()
+	{
+		if (controller.enabled)
 			ProcessMovement();
-		}
 	}
 
 	/**
 	 * All movements applied to the character are processed here.
 	 */
-	public void ProcessMovement() {
-
+	public void ProcessMovement()
+	{
 		// process horizontal movement
 		movement.x = Input.GetAxis("Horizontal") * PlayerModel.MAX_SPEED;
 		animator.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
 
 		// facing direction change
-		if (movement.x < 0 && model.FacingRight() || movement.x > 0 && !model.FacingRight()) {
+		if (movement.x < 0 && model.FacingRight() || movement.x > 0 && !model.FacingRight())
 			model.ToogleFacingDirection();
-		}
 
 		// if is jumping, apply gravity. Otherwise process vertical movement and animations.
 		animator.SetBool("isGrounded", controller.isGrounded);
 
 		if ( ! controller.isGrounded) {
 			movement.y = movement.y - Physics.gravity.magnitude;
-		} else {
-			if (Input.GetButtonDown("Jump")) {
-				movement.y  = PlayerModel.JUMP_SPEED;
-				animator.SetTrigger("Jump");
-			}
+		} else if (Input.GetButtonDown("Jump")) {
+			movement.y  = PlayerModel.JUMP_SPEED;
+			animator.SetTrigger("Jump");
 		}
 
 		// if the player is firing a projectile, he cannot do it again

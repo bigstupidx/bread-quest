@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CreditsReturnController : MonoBehaviour {
-
+public class CreditsReturnController : MonoBehaviour
+{
 	void OnTriggerEnter(Collider _c)
 	{
 		if ( _c.CompareTag("Player") )

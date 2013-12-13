@@ -1,11 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\game\dev\UnityProject\Assets\Scripts\StageContainer\ProjectileContainer\KnifeController.cs">
-    <Files>
-      <File FileName="..\..\..\game\dev\UnityProject\Assets\Scripts\StageContainer\ProjectileContainer\KnifeController.cs" Line="64" Column="31" />
-      <File FileName="Assets\Scripts\StageContainer\GUIContainer\CameraController.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

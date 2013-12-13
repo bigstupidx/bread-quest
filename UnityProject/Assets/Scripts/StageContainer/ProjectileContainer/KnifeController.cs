@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KnifeController : MonoBehaviour {
-
+public class KnifeController : MonoBehaviour
+{
 	const float LIFE_TIME = 1.5f, SPINNING_OFFSET = 0.5f;
 
 	// control variable used to increase force to the corrent side in which the projectile was thrown
@@ -17,7 +17,8 @@ public class KnifeController : MonoBehaviour {
 	 * 
 	 * @param _goingRight bool
 	 */
-	public void VerticalMovement(bool _vertical) {
+	public void VerticalMovement(bool _vertical)
+	{
 		verticalMovement = _vertical;
 	}
 
@@ -26,7 +27,8 @@ public class KnifeController : MonoBehaviour {
 	 * 
 	 * @param _goingRight bool
 	 */
-	public void GoingRight(bool _goingRight) {
+	public void GoingRight(bool _goingRight)
+	{
 		goingRight = _goingRight;
 
 		transform.localScale = new Vector3(
@@ -34,7 +36,8 @@ public class KnifeController : MonoBehaviour {
 		);
 	}
 
-	IEnumerator Destroy () {
+	IEnumerator Destroy ()
+	{
 		yield return new WaitForSeconds(LIFE_TIME);
 		Destroy(gameObject);
 	}
@@ -42,9 +45,11 @@ public class KnifeController : MonoBehaviour {
 	/**
 	 * Add movement to the projectile
 	 */
-	void FixedUpdate() {
+	void FixedUpdate()
+	{
 		// if it hit something, all the forces must stop.
-		if ( ! hit ) {
+		if ( ! hit )
+		{
 			// add force to the knife.
 			GetComponent<Rigidbody>().AddForce(
 				5 * ( verticalMovement
@@ -58,32 +63,40 @@ public class KnifeController : MonoBehaviour {
 	   		);
 
 			// torque is not applicable to vertical movements.
-			if (!verticalMovement) {
+			if ( ! verticalMovement )
+			{
 				// doesn't allow the knife to spin in the first SPINNING_OFFSET seconds.
-				if (offset < SPINNING_OFFSET) {
+				if ( offset < SPINNING_OFFSET )
+				{
 					offset += Time.deltaTime;
-				} else {
+				} else
+				{
 					GetComponent<Rigidbody>().AddTorque(
 						// torque object always in down direction.
 						new Vector3( 0, 0, goingRight ? -30 : 30 )
 					);
 				}
 			}
-		} else {
+		}
+		else
+		{
 			GetComponent<Rigidbody>().AddForce(Vector3.down * 2);
 		}
 	}
 
-	void OnTriggerEnter(Collider _c) {
+	void OnTriggerEnter(Collider _c)
+	{
+		// the knife's collision was trigged with something.
+		hit = true;
+
 		// the collider was the Player itself. Kill him.
-		if ( _c.gameObject.CompareTag("Player") ) {
+		if ( _c.gameObject.CompareTag("Player") )
+		{
 			_c.gameObject.GetComponent<PlayerModel>().Damage(PlayerModel.ENEMY_COLLISION_DAMAGE);
-
 			Destroy(gameObject);
-		} else {
-			// the knife collided with something.
-			hit = true;
-
+		}
+		else
+		{
 			// the collider was something else. A wall, most likely. Wait LIFE_TIME and destroy the knife.
 			StartCoroutine(Destroy ());
 		}

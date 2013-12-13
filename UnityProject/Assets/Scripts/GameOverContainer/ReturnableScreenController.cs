@@ -17,21 +17,38 @@ public class ReturnableScreenController : MonoBehaviour
 
 	public string levelToReturn;
 
-	IEnumerator StayHere() {
+	IEnumerator StayHere()
+	{
 		yield return new WaitForSeconds(MINIMUM_TIME);
 		canGoBack = true;
 	}
 
-	void Start() {
-		if (levelToReturn == "") {
+	IEnumerator GoBack() {
+		GameObject
+			.FindGameObjectWithTag("screen")
+			.GetComponent<Animator>()
+			.SetTrigger("close");
+		yield return new WaitForSeconds(0.5f);
+		Application.LoadLevel(levelToReturn);
+	}
+
+	void Start()
+	{
+		if (levelToReturn == "")
 			levelToReturn = "main-menu";
-		}
+
 		StartCoroutine(StayHere());
 	}
 
-	void Update() {
-		if (canGoBack && Input.anyKey) {
-			Application.LoadLevel(levelToReturn);
+	void Update()
+	{
+		if ( canGoBack &&
+		    (  Input.GetButton("Jump")
+			|| Input.GetButton("Enter")
+			|| Input.GetButton("Fire1") ) )
+		{
+			canGoBack = false;
+			StartCoroutine(GoBack());
 		}
 	}
 }

@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ProjectileController : MonoBehaviour {
+public class ProjectileController : MonoBehaviour
+{
 	// element of this projectile
 	public ElementType type;
 	// time (in seconds) in which the projectile does exists
@@ -14,12 +15,17 @@ public class ProjectileController : MonoBehaviour {
 	 * 
 	 * @param _goingRight bool
 	 */
-	public void GoingRight(bool _goingRight) {
+	public void GoingRight(bool _goingRight)
+	{
 		goingRight = _goingRight;
-
-		if ( ! goingRight ) {
-			transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		}
+		transform.localScale = new Vector3(
+			goingRight
+		 	? transform.localScale.x
+		 	: -transform.localScale.x
+			,
+			transform.localScale.y,
+			transform.localScale.z
+		);
 	}
 
 	/**
@@ -27,7 +33,8 @@ public class ProjectileController : MonoBehaviour {
 	 * 
 	 * @return ElementType
 	 */
-	public ElementType Type() {
+	public ElementType Type()
+	{
 		return type;
 	}
 
@@ -36,12 +43,14 @@ public class ProjectileController : MonoBehaviour {
 	 * 
 	 * @return IEnumerator
 	 */
-	IEnumerator WaitForLifeTime() {
+	IEnumerator WaitForLifeTime()
+	{
 		yield return new WaitForSeconds(lifeTime);
 		Destroy();
 	}
 
-	void Destroy() {
+	void Destroy()
+	{
 		GameObject explosion = GameObject.Find("ProjectileExplosion");
 
 		// show explosion effect
@@ -57,14 +66,16 @@ public class ProjectileController : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	void Start() {
+	void Start()
+	{
 		StartCoroutine(this.WaitForLifeTime());
 	}
 
 	/**
 	 * Add movement to the projectile
 	 */
-	void FixedUpdate() {
+	void FixedUpdate()
+	{
 		GetComponent<Rigidbody>().AddForce(10 * (
 			goingRight
 			? Vector3.right
@@ -75,20 +86,19 @@ public class ProjectileController : MonoBehaviour {
 	/**
 	 * Handles collision with objects
 	 */
-	void OnTriggerEnter(Collider _c) {
+	void OnTriggerEnter(Collider _c)
+	{
 		// avoid collision with all undesired objects, like movement inversion zones or the player itself.
-		if (Tools.IsNullObject(_c.gameObject) || _c.CompareTag("Player")) {
-			return;
+		if ( ! Tools.IsNullObject(_c.gameObject) && ! _c.CompareTag("Player"))
+		{
+			IDamageable target = _c.GetComponent(typeof(IDamageable)) as IDamageable;
+
+			// target is damageable (because it implements the interface IDamageable)
+			// and its type is different from the attack's type
+			if (target != null && type != target.Type ())
+				target.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
+
+			this.Destroy();
 		}
-
-		IDamageable target = _c.GetComponent(typeof(IDamageable)) as IDamageable;
-
-		// target is damageable (because it implements the interface IDamageable)
-		// and its type is different from the attack's type
-		if (target != null && type != target.Type ()) {
-			target.Damage(EnemyModel.ENEMY_COLLISION_DAMAGE);
-		}
-
-		this.Destroy();
 	}
 }

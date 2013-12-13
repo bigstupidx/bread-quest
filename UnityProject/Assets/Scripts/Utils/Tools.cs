@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Tools
 {
-	public static float IncrementTowards(float current, float target, float acceleration) {
+	public static float IncrementTowards(float current, float target, float acceleration)
+	{
 		float dir = Mathf.Sign(target - current);
 		current += dir * acceleration * Time.deltaTime;
 		
@@ -13,20 +14,26 @@ public class Tools
 			;
 	}
 
-	public static GUIController GUIController() {
-		return GameObject.Find("GUI").GetComponent<GUIController>();
+	public static GUIController GUIController()
+	{
+		return GameObject
+				.Find("GUI")
+				.GetComponent<GUIController>();
 	}
 	
-	public static GameController GameController() {
+	public static GameController GameController()
+	{
 		return Camera.main.GetComponent<GameController>();
 	}
 
-	public static bool IsNullObject(GameObject _o) {
+	public static bool IsNullObject(GameObject _o)
+	{
 		return _o.CompareTag("EnemyMovementInversionZone")
 			|| _o.CompareTag("DeadZone");
 	}
 
-	public static GameObject Player() {
+	public static GameObject Player()
+	{
 		return GameObject.Find ("player");
 	}
 }

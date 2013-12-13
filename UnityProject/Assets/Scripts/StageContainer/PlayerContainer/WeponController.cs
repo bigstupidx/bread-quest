@@ -2,14 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class WeponController : MonoBehaviour {
-
+public class WeponController : MonoBehaviour
+{
 	public AudioClip[] attackAudio;
 
 	public GameObject projectileJelly, projectilePB;
 	bool isFiring = false;
 
-	public bool IsFiring() {
+	public bool IsFiring()
+	{
 		return isFiring;
 	}
 
@@ -21,8 +22,9 @@ public class WeponController : MonoBehaviour {
 		// instantiate projectile.
 		GameObject projectile = Instantiate(
 			_projectile == ElementType.JELLY
-				? projectileJelly
-				: projectilePB,
+			? projectileJelly
+			: projectilePB
+			,
 			transform.position,
 			Quaternion.identity
 		) as GameObject;
@@ -33,7 +35,7 @@ public class WeponController : MonoBehaviour {
 			transform.parent.GetComponent<PlayerModel>().FacingRight()
 		);
 
-		// play audioclip
+		// play audioclip correspondent to projectile used.
 		audio.clip = attackAudio[ _projectile == ElementType.JELLY ? 0 : 1 ];
 		audio.Play();
 

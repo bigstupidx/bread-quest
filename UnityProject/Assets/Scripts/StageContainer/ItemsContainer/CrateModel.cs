@@ -4,11 +4,13 @@ public class CrateModel : MonoBehaviour, IDamageable
 {
 	public ElementType type;
 
-	public void Damage(int amount) {
+	public void Damage(int amount)
+	{
 		Destroy(gameObject);
 	}
 
-	public ElementType Type () {
+	public ElementType Type ()
+	{
 		return type;
 	}
 }

@@ -13,40 +13,45 @@ public abstract class Person : MonoBehaviour, IDamageable
 	public bool vunerable;
 	bool facingRight;
 
-
-	public Person () {
+	public Person ()
+	{
 		health = INITIAL_HEALTH;
 		lives = INITIAL_LIVES;
 		facingRight = true;
 	}
 
-	public bool FacingRight() {
+	public bool FacingRight()
+	{
 		return facingRight;
 	}
 	
-	public virtual void ToogleFacingDirection() {
+	public virtual void ToogleFacingDirection()
+	{
 		facingRight = !facingRight;
 		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	
-	public virtual void Damage( int damageInflicted ) {
-		if ( vunerable ) {
+	public virtual void Damage( int damageInflicted )
+	{
+		if ( vunerable )
+		{
 			vunerable = false;
 			health -= damageInflicted;
 
-			if ( health <= 0 ) {
+			if ( health <= 0 )
+			{
 				health = 0;
 				Die ();
 			}
 		}
 	}
 
-	public virtual void Die() {
-		lives = lives - 1;
+	public virtual void Die()
+	{
+		lives--;
 
-		if ( lives > 0 ) {
+		if ( lives > 0 )
 			health = INITIAL_HEALTH;
-		}
 
 		StartCoroutine(ProcessDeath());
 	}
