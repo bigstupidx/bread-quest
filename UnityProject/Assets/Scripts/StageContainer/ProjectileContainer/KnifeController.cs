@@ -65,7 +65,7 @@ public class KnifeController : MonoBehaviour {
 				} else {
 					GetComponent<Rigidbody>().AddTorque(
 						// torque object always in down direction.
-						new Vector3( 0, 0, goingRight ? -5 : 5 )
+						new Vector3( 0, 0, goingRight ? -30 : 30 )
 					);
 				}
 			}
