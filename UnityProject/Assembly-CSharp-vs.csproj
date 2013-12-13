@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CreditContainer\NameControlller.cs" />
      <Compile Include="Assets\Scripts\GameOverContainer\ReturnableScreenController.cs" />
      <Compile Include="Assets\Scripts\IntroContainer\IntroController.cs" />
+     <Compile Include="Assets\Scripts\IntroContainer\SkipIconController.cs" />
      <Compile Include="Assets\Scripts\Libs\iTween.cs" />
      <Compile Include="Assets\Scripts\MainMenuContainer\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\StageContainer\Abstractions\ElementType.cs" />
