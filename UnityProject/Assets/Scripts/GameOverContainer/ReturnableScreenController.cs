@@ -23,12 +23,19 @@ public class ReturnableScreenController : MonoBehaviour
 		canGoBack = true;
 	}
 
-	IEnumerator GoBack() {
-		GameObject
-			.FindGameObjectWithTag("screen")
-			.GetComponent<Animator>()
-			.SetTrigger("close");
-		yield return new WaitForSeconds(0.5f);
+	IEnumerator GoBack()
+	{
+		Animator animator =  GameObject
+				.FindGameObjectWithTag("screen")
+				.GetComponent<Animator>();
+
+		// if there is a animator, execute it
+		if (animator)
+		{
+			animator.SetTrigger("close");
+			yield return new WaitForSeconds(0.5f);
+		}
+
 		Application.LoadLevel(levelToReturn);
 	}
 

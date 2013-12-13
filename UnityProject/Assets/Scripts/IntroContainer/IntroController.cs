@@ -3,12 +3,25 @@ using System.Collections;
 
 public class IntroController : MonoBehaviour
 {
+	void Start()
+	{
+		StartCoroutine(AutoSkip());
+	}
+
 	void Update()
 	{
+
 		if (Input.GetButton("Fire1")
 		    || Input.GetButton("Enter")
 		    || Input.GetButton("Jump"))
 			SkipCinematic();
+	}
+
+	IEnumerator AutoSkip()
+	{
+		yield return new WaitForSeconds(140f);
+
+		SkipCinematic();
 	}
 
 	/**
@@ -17,7 +30,7 @@ public class IntroController : MonoBehaviour
 	 * It is called when the player presses a confirmation button or it is invoked by the
 	 * Animator component at end of intro-layer-transitions.
 	 */
-	public void SkipCinematic ()
+	void SkipCinematic()
 	{
 		Application.LoadLevel("stage-1");
 	}
