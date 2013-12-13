@@ -4,11 +4,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 	public GameObject instantiatedPlayer;
-	StageCamera cam;
+	CameraController cam;
 	Vector3 position;
 
 	public void Start() {
-		cam = GetComponent<StageCamera>();
+		cam = GetComponent<CameraController>();
 		SpawnPlayer();
 	}
 
